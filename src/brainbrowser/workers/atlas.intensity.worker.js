@@ -3,8 +3,8 @@
 
   self.addEventListener("message", function(e) {
     var input = e.data;
-
-    importScripts(input.url + 'utils/csv-parser.js');
+    console.log("input is", input)
+    importScripts('http://localhost:8080/client/brainbrowser-minimal-example/brainbrowser/src/brainbrowser/workers/utils/csv-parser.js');
 
     var atlasResultAndBuffers = imports['csv-parser'].parseCSV(input.data.atlas, input.options.atlas);
     var dataResultAndBuffers = imports['csv-parser'].parseCSV(input.data.values, input.options.values);
